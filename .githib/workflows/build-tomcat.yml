@@ -1,0 +1,24 @@
+name: passing aruguments
+
+on: push
+jobs:
+   builds:
+     runs-on: ubuntu-latest
+     steps:
+     - name: checkout the code
+       uses:actions/checkout@v2
+       
+     - name: get the current java version
+       run: |
+           ls -ltr
+           java -version
+           
+     - name: checkout apache tomcat
+       run: actions/checkout@v2
+       with:
+         repository:apache/tomcat
+         ref:master
+         path: ./tomcat
+         
+      - name: setup java
+        run: 
