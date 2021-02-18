@@ -32,13 +32,21 @@ jobs:
              ls -ltr
              java -version
              
+           
+   build2:
+     needs: [builds]
+     runs-on: ubuntu-latest
+     steps:
      - name: copy tomcat xml into confiration direcotry
        run: cp tomcat-users.xml ./tomcat/conf/tomcat-users.xml
-         
+
      - name: Compile tomcat
        run: |
          cd ./tomcat
          ant
+
+  
+
          
           
           
